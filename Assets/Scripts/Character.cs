@@ -21,6 +21,11 @@ public abstract class Character : MonoBehaviour
         characterRigidbody.AddForce(moveDirection * moveSpeed * Time.fixedDeltaTime);
     }
 
+    public void Rotate(Vector3 direction)
+    {
+        transform.up = direction;
+    }
+
     public virtual void Attack()
     {
         Debug.Log("ATTACKING!");

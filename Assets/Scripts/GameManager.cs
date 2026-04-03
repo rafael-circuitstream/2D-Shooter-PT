@@ -2,19 +2,32 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Player playerReference;
-    [SerializeField] private Character randomEnemyReference;
+    private Player playerCharacter;
 
+    private Weapon sword;
+    private Weapon rifle;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        playerCharacter = FindAnyObjectByType<Player>();
+
+        sword = new MeleeWeapon();
+        rifle = new RangedWeapon();
+
+        playerCharacter.ChangeWeapon(sword);
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            playerCharacter.ChangeWeapon(sword);
+        }
+        else if(Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            playerCharacter.ChangeWeapon(rifle);
+        }
     }
+
 }

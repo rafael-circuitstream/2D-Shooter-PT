@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Player : Character, IDash
 {
-    [SerializeField] private Vector2 faceDirection;
+    [SerializeField] protected Vector2 faceDirection;
+    private Weapon currentWeaponEquipped;
 
     void Update()
     {
@@ -10,9 +11,8 @@ public class Player : Character, IDash
         moveDirection.y = Input.GetAxisRaw("Vertical");
 
         faceDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        transform.up = faceDirection;
 
-        //attack when clicking the mouse
+        Rotate(faceDirection);
 
         Move();
 
@@ -20,12 +20,26 @@ public class Player : Character, IDash
         {
             ExecuteDash();
         }
+
+        if (Input.GetMouseButtonDown (0) )
+        {
+            Attack();
+        }
     }
 
+    public override void Attack()
+    {
+        base.Attack();
+        currentWeaponEquipped.Use();
+    }
 
     public void ExecuteDash()
     {
         characterRigidbody.AddForce(moveDirection * moveSpeed * 2);
     }
 
+    public void ChangeWeapon(Weapon newWeapon)
+    {
+        currentWeaponEquipped = newWeapon;
+    }
 }
