@@ -3,7 +3,7 @@ using UnityEngine;
 public class HealthModule
 {
     private float maxHealth;
-    public float currentHealth;
+    private float currentHealth;
 
     public void DecreaseHealth(float valueToDecrease)
     {

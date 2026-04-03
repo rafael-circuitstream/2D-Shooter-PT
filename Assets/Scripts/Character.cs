@@ -1,17 +1,18 @@
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
-    [SerializeField] public Vector2 moveDirection;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] protected Vector2 moveDirection;
+    [SerializeField] protected float moveSpeed;
 
-    [SerializeField] private Rigidbody2D characterRigidbody;
+    [SerializeField] protected Rigidbody2D characterRigidbody;
     public HealthModule health;
     
 
     public virtual void Start()
     {
         health = new HealthModule(100);
+        
     }
 
 
@@ -24,5 +25,6 @@ public class Character : MonoBehaviour
     {
         Debug.Log("ATTACKING!");
     }
+
 
 }
