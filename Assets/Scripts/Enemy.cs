@@ -8,6 +8,7 @@ public class Enemy : Character
     public override void Start()
     {
         base.Start();
+        health.OnHealthZero += ReactToDeath;
 
         playerTransformReference = FindAnyObjectByType<Player>().transform;
     }
@@ -20,6 +21,17 @@ public class Enemy : Character
         Rotate(moveDirection);
 
         Move();
+    }
+
+
+
+    private void ReactToDeath()
+    {
+        FindAnyObjectByType<GameManager>().RemoveEnemyFromList(this);
+        Destroy(gameObject);
+        //play a sound
+        //spawn effects
+        //add score
     }
 
 }

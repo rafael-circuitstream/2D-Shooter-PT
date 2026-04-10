@@ -1,13 +1,23 @@
+using System;
 using UnityEngine;
 
 public class HealthModule
 {
     private float maxHealth;
     private float currentHealth;
+    
+    public Action OnHealthZero;
 
     public void DecreaseHealth(float valueToDecrease)
     {
         currentHealth -= valueToDecrease;
+
+        Debug.Log(currentHealth);
+
+        if(currentHealth <= 0)
+        {
+            Die();
+        }
         
     }
 
@@ -18,13 +28,11 @@ public class HealthModule
 
     public void Die()
     {
-
+        OnHealthZero.Invoke();
     }
 
     public HealthModule(float initialHealth)
-    {
-        Debug.Log("Creating health pack");
-        
+    {   
         maxHealth = initialHealth;
         currentHealth = maxHealth;
     }

@@ -15,7 +15,6 @@ public abstract class Character : MonoBehaviour
         
     }
 
-
     public void Move()
     {
         characterRigidbody.AddForce(moveDirection * moveSpeed * Time.fixedDeltaTime);

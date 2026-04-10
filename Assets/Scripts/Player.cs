@@ -3,7 +3,17 @@ using UnityEngine;
 public class Player : Character, IDash
 {
     [SerializeField] protected Vector2 faceDirection;
+    [SerializeField] private Projectile projectilePrefab;
+    [SerializeField] private Transform weaponTip;
+
     private Weapon currentWeaponEquipped;
+
+
+    public override void Start()
+    {
+        base.Start();
+        ChangeWeapon( new RangedWeapon( projectilePrefab, weaponTip ) );
+    }
 
     void Update()
     {

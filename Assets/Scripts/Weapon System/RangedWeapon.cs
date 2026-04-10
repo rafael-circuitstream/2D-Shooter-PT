@@ -2,10 +2,20 @@ using UnityEngine;
 
 public class RangedWeapon : Weapon
 {
-    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Projectile projectilePrefab;
+    [SerializeField] private Transform weaponTip;
     [SerializeField] private float fireRate;
+    
     public override void Use()
     {
-        Debug.Log("Pew Pew");
+        GameObject.Instantiate(projectilePrefab, weaponTip.position, weaponTip.rotation);
+
+
+    }
+
+    public RangedWeapon(Projectile newProjectile, Transform newTip)
+    {
+        projectilePrefab = newProjectile;
+        weaponTip = newTip;
     }
 }
