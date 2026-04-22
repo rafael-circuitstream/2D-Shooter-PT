@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 6932905409948422745}
   - component: {fileID: 5793379770383894658}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Gun
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,13 +56,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3242594910670747858}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.542, z: 0}
-  m_LocalScale: {x: 0.17545971, y: 0.2209, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.9999999, w: 0.0005109006}
+  m_LocalPosition: {x: 0, y: 0.358, z: 0}
+  m_LocalScale: {x: 0.7337726, y: 0.9238038, z: 4.182}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7166927797509376960}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -179.941}
 --- !u!212 &5793379770383894658
 SpriteRenderer:
   serializedVersion: 2
@@ -112,7 +112,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 281306285295221210, guid: 5547594ecc3f11a4e86f1b91993c1a15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,9 +132,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7166927797509376960}
   - component: {fileID: 1900308631660509033}
-  - component: {fileID: 740954736860731818}
+  - component: {fileID: 5309032462478364486}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Ship Body
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,8 +205,8 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.037173275, g: 0.85660374, b: 0.057342816, a: 1}
+  m_Sprite: {fileID: 8587340271344757162, guid: 70d6d8f340ba121439dbc380c47b96fa, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -215,8 +215,8 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!58 &740954736860731818
-CircleCollider2D:
+--- !u!60 &5309032462478364486
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -250,7 +250,38 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.12, y: 0.75}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.48, y: -0.275}
+      - {x: 0.56, y: -0.095}
+      - {x: 0.56, y: -0.015}
+      - {x: 0.5, y: 0.015}
+      - {x: 0.38, y: 0.055}
+      - {x: 0.12, y: 0.225}
+      - {x: 0.099999994, y: 0.355}
+      - {x: 0.06, y: 0.375}
+      - {x: -0.089999996, y: 0.375}
+      - {x: -0.19999999, y: 0.145}
+      - {x: -0.56, y: -0.015}
+      - {x: -0.56, y: -0.13499999}
+      - {x: -0.53999996, y: -0.185}
+      - {x: -0.39999998, y: -0.375}
+      - {x: -0.19999999, y: -0.345}
+      - {x: -0.14999999, y: -0.375}
+      - {x: 0.14, y: -0.375}
+      - {x: 0.19, y: -0.325}
+      - {x: 0.32, y: -0.355}
+      - {x: 0.39, y: -0.36499998}
+  m_UseDelaunayMesh: 1
 --- !u!1 &6017540175201662675
 GameObject:
   m_ObjectHideFlags: 0
