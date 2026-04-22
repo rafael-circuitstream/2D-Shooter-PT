@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    [SerializeField] private Transform playerTransformReference;
+    [SerializeField] private Player playerReference;
 
 
     public override void Start()
@@ -10,19 +10,38 @@ public class Enemy : Character
         base.Start();
         health.OnHealthZero += ReactToDeath;
 
-        playerTransformReference = FindAnyObjectByType<Player>().transform;
+        playerReference = FindAnyObjectByType<Player>();
     }
 
     public virtual void Update()
     {
-        moveDirection = playerTransformReference.position - transform.position;
+        if(playerReference == null)
+        {
+            return;
+        }
+
+        moveDirection = playerReference.transform.position - transform.position;
         moveDirection = moveDirection.normalized;
 
         Rotate(moveDirection);
 
         Move();
+
+        if(Vector2.Distance(transform.position, playerReference.transform.position) < 2)
+        {
+            Attack();
+        }
+
     }
 
+    public override void Attack()
+    {
+        if(playerReference.gameObject.activeInHierarchy)
+        {
+            playerReference.health.DecreaseHealth(Time.deltaTime);
+        }
+
+    }
 
 
     private void ReactToDeath()
@@ -33,5 +52,7 @@ public class Enemy : Character
         //spawn effects
         //add score
     }
+
+    
 
 }

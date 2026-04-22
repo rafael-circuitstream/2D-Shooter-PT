@@ -5,6 +5,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private Rigidbody2D projectileRigidbody;
     [SerializeField] private float projectileSpeed;
 
+    public float damage;
+
     void Start()
     {
         projectileRigidbody.linearVelocity = transform.up * projectileSpeed;
@@ -17,7 +19,7 @@ public class Projectile : MonoBehaviour
         
         if(collision.gameObject.CompareTag("Enemy")  )
         {
-            collision.gameObject.GetComponent<Enemy>().health.DecreaseHealth(50);
+            collision.gameObject.GetComponent<Enemy>().health.DecreaseHealth(damage);
         }
         
         Destroy(gameObject);

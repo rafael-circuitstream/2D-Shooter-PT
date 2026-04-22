@@ -3,16 +3,19 @@ using UnityEngine;
 public class Player : Character, IDash
 {
     [SerializeField] protected Vector2 faceDirection;
-    [SerializeField] private Projectile projectilePrefab;
+    //[SerializeField] private Projectile projectilePrefab;
     [SerializeField] private Transform weaponTip;
 
-    private Weapon currentWeaponEquipped;
+    [SerializeField] private Weapon currentWeaponEquipped;
 
 
     public override void Start()
     {
         base.Start();
-        ChangeWeapon( new RangedWeapon( projectilePrefab, weaponTip ) );
+
+        //ChangeWeapon( new RangedWeapon( projectilePrefab, weaponTip ) );
+
+        health.OnHealthZero += GameOver;
     }
 
     void Update()
@@ -40,7 +43,7 @@ public class Player : Character, IDash
     public override void Attack()
     {
         base.Attack();
-        currentWeaponEquipped.Use();
+        currentWeaponEquipped.Use(weaponTip);
     }
 
     public void ExecuteDash()
@@ -51,5 +54,15 @@ public class Player : Character, IDash
     public void ChangeWeapon(Weapon newWeapon)
     {
         currentWeaponEquipped = newWeapon;
+    }
+
+    private void GameOver()
+    {
+        if(gameObject.activeInHierarchy)
+        {
+            FindAnyObjectByType<GameManager>().RegisterHighscore();
+            gameObject.SetActive(false);
+        }
+
     }
 }

@@ -12,7 +12,7 @@ public class HealthModule
     {
         currentHealth -= valueToDecrease;
 
-        Debug.Log(currentHealth);
+        
 
         if(currentHealth <= 0)
         {
@@ -29,6 +29,11 @@ public class HealthModule
     public void Die()
     {
         OnHealthZero.Invoke();
+    }
+
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
     }
 
     public HealthModule(float initialHealth)

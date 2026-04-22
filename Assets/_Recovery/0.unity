@@ -222,10 +222,6 @@ MonoBehaviour:
   - {fileID: 840701284}
   - {fileID: 607045641}
   - {fileID: 426254719}
-  pickupsPrefabs:
-  - {fileID: 5343206548992883852, guid: 269cb6246a91be047afd1c133d58fe3f, type: 3}
-  - {fileID: 5343206548992883852, guid: dc42b76be644d364dba7edb42eb97131, type: 3}
-  chanceToSpawnPickup: 20
 --- !u!4 &259136610
 Transform:
   m_ObjectHideFlags: 0
@@ -620,7 +616,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000001f77b0de
+  m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -701,7 +697,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 34.508057}
+  m_AnchoredPosition: {x: 0, y: 34.508}
   m_SizeDelta: {x: 538.8213, y: 69.0155}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &664938064
@@ -1353,11 +1349,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6351614242716085160, guid: 927476eb1ec946743837daab2064c6bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.727
+      value: 5.43
       objectReference: {fileID: 0}
     - target: {fileID: 6351614242716085160, guid: 927476eb1ec946743837daab2064c6bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.469
+      value: -0.314
       objectReference: {fileID: 0}
     - target: {fileID: 6351614242716085160, guid: 927476eb1ec946743837daab2064c6bf, type: 3}
       propertyPath: m_LocalPosition.z

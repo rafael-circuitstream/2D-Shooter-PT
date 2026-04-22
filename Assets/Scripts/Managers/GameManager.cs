@@ -4,10 +4,38 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Enemies")]
     [SerializeField] private List<Enemy> allSpawnedEnemies = new List<Enemy>();
-
     [SerializeField] private Enemy[] possibleEnemyPrefabs;
     [SerializeField] private Transform[] possibleSpawnPoints;
+
+    [Header("Pick ups")]
+    [SerializeField] private Pickup[] pickupsPrefabs;
+    [SerializeField] private float chanceToSpawnPickup;
+
+    private int currentScore;
+
+
+    private void SpawnRandomPickup(Vector2 position)
+    {
+        int randomIndex = Random.Range(0, pickupsPrefabs.Length);
+        Pickup randomPickup = pickupsPrefabs[ randomIndex ];
+        Instantiate(randomPickup, position, Quaternion.identity);
+    }
+
+    public void RemoveEnemyFromList(Enemy toRemove)
+    {
+        allSpawnedEnemies.Remove(toRemove);
+        currentScore += 10;
+
+        //Spawn a pick up
+        if(Random.Range(0, 100) < chanceToSpawnPickup)
+        {
+            SpawnRandomPickup(toRemove.transform.position);
+        }
+        
+
+    }
 
 
     void Start()
@@ -15,13 +43,12 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnEnemy());
     }
 
-
     private IEnumerator SpawnEnemy()
     {
         while( true )
         {
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(1.2f);
 
             int randomEnemyIndex = Random.Range(0, possibleEnemyPrefabs.Length);
 
@@ -41,11 +68,22 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void RemoveEnemyFromList(Enemy toRemove)
+
+
+    public int GetCurrentScore()
     {
-        allSpawnedEnemies.Remove(toRemove);
+        return currentScore;
     }
 
+    public void RegisterHighscore()
+    {      
+        if(currentScore > PlayerPrefs.GetInt("HighScore"))
+        {
+            PlayerPrefs.SetInt("HighScore", currentScore);
+            Debug.Log("You have a new HighScore of " + currentScore.ToString());
+        }
+
+    }
 }
 
 

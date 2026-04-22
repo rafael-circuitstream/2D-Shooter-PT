@@ -1,21 +1,17 @@
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "New Weapon")]
 public class RangedWeapon : Weapon
 {
-    [SerializeField] private Projectile projectilePrefab;
-    [SerializeField] private Transform weaponTip;
-    [SerializeField] private float fireRate;
+    [SerializeField] protected Projectile projectilePrefab;
+
+    [SerializeField] protected float fireRate;
     
-    public override void Use()
+    public override void Use(Transform weaponTip)
     {
-        GameObject.Instantiate(projectilePrefab, weaponTip.position, weaponTip.rotation);
-
+        Projectile tempProjectile = GameObject.Instantiate(projectilePrefab, weaponTip.position, weaponTip.rotation);
+        tempProjectile.damage = damage;
 
     }
 
-    public RangedWeapon(Projectile newProjectile, Transform newTip)
-    {
-        projectilePrefab = newProjectile;
-        weaponTip = newTip;
-    }
 }
