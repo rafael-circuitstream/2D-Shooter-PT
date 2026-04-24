@@ -196,8 +196,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   moveDirection: {x: 0, y: 0}
-  moveSpeed: 100
+  moveSpeed: 200
   characterRigidbody: {fileID: 9191374053423991701}
+  deadFxPrefab: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
   playerReference: {fileID: 0}
 --- !u!50 &9191374053423991701
 Rigidbody2D:

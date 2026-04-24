@@ -616,7 +616,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 2
+  m_LinearDamping: 5
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -643,7 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   moveDirection: {x: 0, y: 0}
-  moveSpeed: 100
+  moveSpeed: 500
   characterRigidbody: {fileID: 1758089905946570565}
   faceDirection: {x: 0, y: 0}
   weaponTip: {fileID: 8636153931182743775}

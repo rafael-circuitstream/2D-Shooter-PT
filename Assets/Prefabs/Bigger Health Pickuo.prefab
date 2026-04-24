@@ -102,4 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eae629231626535499a43529e4c1d895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthPickup
+  pickUpSound: {fileID: 5418225801135676285}
   healthAmount: 30
+--- !u!82 &5418225801135676285 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4182926892925321285, guid: 6bce0cd506d03654a96d81e5e556123e, type: 3}
+  m_PrefabInstance: {fileID: 8159918276243249976}
+  m_PrefabAsset: {fileID: 0}

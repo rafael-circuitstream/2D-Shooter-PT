@@ -6,6 +6,8 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected float moveSpeed;
 
     [SerializeField] protected Rigidbody2D characterRigidbody;
+    [SerializeField] protected GameObject deadFxPrefab;
+
     public HealthModule health;
     
 

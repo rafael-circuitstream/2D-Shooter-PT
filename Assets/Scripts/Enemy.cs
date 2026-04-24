@@ -47,6 +47,9 @@ public class Enemy : Character
     private void ReactToDeath()
     {
         FindAnyObjectByType<GameManager>().RemoveEnemyFromList(this);
+
+        Instantiate(deadFxPrefab, transform.position, Quaternion.identity);
+
         Destroy(gameObject);
         //play a sound
         //spawn effects
