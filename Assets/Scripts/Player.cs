@@ -8,6 +8,7 @@ public class Player : Character, IDash
 
     [SerializeField] private Weapon currentWeaponEquipped;
 
+    public float shootCooldown;
 
     public override void Start()
     {
@@ -20,6 +21,7 @@ public class Player : Character, IDash
 
     void Update()
     {
+
         moveDirection.x = Input.GetAxisRaw("Horizontal");
         moveDirection.y = Input.GetAxisRaw("Vertical");
 
@@ -34,15 +36,33 @@ public class Player : Character, IDash
             ExecuteDash();
         }
 
-        if (Input.GetMouseButtonDown (0) )
+        if(shootCooldown <= 0)
         {
-            Attack();
+            if (Input.GetMouseButtonDown(0))
+            {
+                Attack();
+            }
         }
+        else
+        {
+            shootCooldown -= Time.deltaTime;
+        }
+
     }
 
     public override void Attack()
     {
         base.Attack();
+
+        if(currentWeaponEquipped is RangedWeapon currentRangedWeaponEquipped)
+        {
+            shootCooldown = currentRangedWeaponEquipped.GetFireRate();
+        }
+        else
+        {
+            shootCooldown = 1;
+        }
+
         currentWeaponEquipped.Use(weaponTip);
     }
 

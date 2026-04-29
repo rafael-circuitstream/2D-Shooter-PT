@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    [SerializeField] private AudioSource pickUpSound;
+    [SerializeField] private AudioClip pickUpSound;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,9 +20,8 @@ public class Pickup : MonoBehaviour
     {
         //Play a sound
         //play particle effect
-        pickUpSound.transform.SetParent(null);
 
-        pickUpSound.Play();
+        FindAnyObjectByType<AudioManager>().PlayPickUpSound(pickUpSound);
         Destroy(gameObject);
     }
 }
